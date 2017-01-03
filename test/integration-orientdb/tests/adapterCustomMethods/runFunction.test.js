@@ -10,11 +10,7 @@ describe('Adapter Custom Methods', function() {
     
     before(function(done) {
       Associations.Friend.getDB(function(db) {
-        db.createFn('runme1', function(str, str2) {
-          str = str || '';
-          str2 = str2 || '';
-          return 'this ' + str + ' work' + str2;
-        })
+        db.createFn('runme1', function(str, str2) {return 'this ' + (str || '') + ' work' + (str2 || ''); })
         .then(function() { done(); })
         .catch(done);
       });
